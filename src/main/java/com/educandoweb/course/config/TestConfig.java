@@ -1,5 +1,6 @@
 package com.educandoweb.course.config;
 
+import java.time.Instant;
 import java.util.Arrays;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,7 +8,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
+import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.entities.User;
+import com.educandoweb.course.repositories.OrderRepository;
 import com.educandoweb.course.repositories.UserRepository;
 
 /*
@@ -30,6 +33,9 @@ public class TestConfig implements CommandLineRunner {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -42,6 +48,13 @@ public class TestConfig implements CommandLineRunner {
 		 * Como a minha interface UserRepository extends JpaRepository, eu tenho, por meio dela,
 		 * acesso ao método "saveAll". Como parâmetro, eu crio uma lista que contém os dois objetos criados
 		 */
+		
+		
+		Order o1 = new Order(null, Instant.parse("2024-09-30T21:01:23Z"), u1);
+		Order o2 = new Order(null, Instant.parse("2024-10-30T21:01:23Z"), u2);
+		Order o3 = new Order(null, Instant.parse("2024-11-30T21:01:23Z"), u1);
+		
 		userRepository.saveAll(Arrays.asList(u1,u2));
+		orderRepository.saveAll(Arrays.asList(o1,o2,o3));
 	}
 }

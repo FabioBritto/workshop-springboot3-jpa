@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -24,11 +26,18 @@ public class User implements Serializable {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	/*
+	 * Indica que o Persistence Provider precisa atribuir chave primária para a entidade usando uma
+	 * coluna de identidade do Banco de Dados
+	 */
 	private Long id;
 	private String name;
 	private String email;
 	private String phone;
 	private String password;
+	
+	
+	//O JsonIgnore aqui não funciona. Só na classe ORDER
 	
 	@OneToMany(mappedBy = "client")
 	private List<Order> orders = new ArrayList<>();
@@ -85,6 +94,7 @@ public class User implements Serializable {
 		this.password = password;
 	}
 	
+	@JsonIgnore
 	public List<Order> getOrder() {
 		return orders;
 	}
