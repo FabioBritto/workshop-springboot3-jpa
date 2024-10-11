@@ -59,13 +59,6 @@ public class TestConfig implements CommandLineRunner {
 		
 		categoryRepository.saveAll(Arrays.asList(cat1,cat2,cat3));
 		
-		User u1 = new User(null,"João Pé de Feijão", "joao@feijao","12312312","1234");
-		User u2 = new User(null,"Maria Mão de Latrina", "maria@latrina","3480234","123445");
-		
-		Order o1 = new Order(null, Instant.parse("2024-09-30T21:01:23Z"), OrderStatus.PAID, u1);
-		Order o2 = new Order(null, Instant.parse("2024-10-30T21:01:23Z"), OrderStatus.WAITING_PAYMENT, u2);
-		Order o3 = new Order(null, Instant.parse("2024-11-30T21:01:23Z"), OrderStatus.WAITING_PAYMENT, u1);
-		
 		Product p1 = new Product(null, "The Lord of the Rings", "Lorem ipsum dolor sit amet, consectetur.", 90.5, "");
 		Product p2 = new Product(null, "Smart TV", "Nulla eu imperdiet purus. Maecenas ante.", 2190.0, "");
 		Product p3 = new Product(null, "Macbook Pro", "Nam eleifend maximus tortor, at mollis.", 1250.0, "");
@@ -73,6 +66,24 @@ public class TestConfig implements CommandLineRunner {
 		Product p5 = new Product(null, "Rails for Dummies", "Cras fringilla convallis sem vel faucibus.", 100.99, "");
 		
 		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+		
+		p1.getCategories().add(cat2);
+		p2.getCategories().add(cat1);
+		p2.getCategories().add(cat3);
+		p3.getCategories().add(cat3);
+		p4.getCategories().add(cat3);
+		p5.getCategories().add(cat2);
+		
+		productRepository.saveAll(Arrays.asList(p1,p2,p3,p4,p5));
+		
+		User u1 = new User(null,"João Pé de Feijão", "joao@feijao","12312312","1234");
+		User u2 = new User(null,"Maria Mão de Latrina", "maria@latrina","3480234","123445");
+		
+		Order o1 = new Order(null, Instant.parse("2024-09-30T21:01:23Z"), OrderStatus.PAID, u1);
+		Order o2 = new Order(null, Instant.parse("2024-10-30T21:01:23Z"), OrderStatus.WAITING_PAYMENT, u2);
+		Order o3 = new Order(null, Instant.parse("2024-11-30T21:01:23Z"), OrderStatus.WAITING_PAYMENT, u1);
+		
+		
 		/*
 		 * Como a minha interface UserRepository extends JpaRepository, eu tenho, por meio dela,
 		 * acesso ao método "saveAll". Como parâmetro, eu crio uma lista que contém os dois objetos criados
