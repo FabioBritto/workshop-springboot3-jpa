@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Objects;
 
 import com.educandoweb.course.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -18,10 +19,13 @@ public class OrderItem implements Serializable {
 	/*
 	 * Como aqui se trata de um ID composto, eu não uso a Annotation
 	 * @Id. Uso a @EmbeddedId
+	 * 
+	 * Sempre que eu for criar uma classe auxiliar que é um ID composto, preciso instanciá-la
+	 * logo de cara
 	 */
 	
 	@EmbeddedId
-	private OrderItemPK id;
+	private OrderItemPK id = new OrderItemPK();
 	
 	private Integer quantity;
 	private Double price;
@@ -52,6 +56,7 @@ public class OrderItem implements Serializable {
 		this.price = price;
 	}
 	
+	@JsonIgnore
 	public Order getOrder() {
 		return id.getOrder();
 	}
