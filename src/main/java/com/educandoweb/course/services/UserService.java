@@ -37,6 +37,23 @@ public class UserService {
 	public void delete(Long id) {
 		repository.deleteById(id);
 	}
+	
+	public User update(Long id, User obj) {
+		/*
+		 * O método getReferenceById() não chega no banco de dados. Ele só prepara o objeto monitorado
+		 * e depois eu faço alguma alteração no Banco de Dados
+		 */
+		
+		User entity = repository.getReferenceById(id);
+		updateData(entity, obj);
+		return repository.save(entity);
+	}
+
+	private void updateData(User entity, User obj) {
+		entity.setName(obj.getName());
+		entity.setEmail(obj.getEmail());
+		entity.setPhone(obj.getPhone());
+	}
 }
 
 
