@@ -90,7 +90,7 @@ public class OrderItem implements Serializable {
 		return Objects.equals(id, other.id);
 	}
 
-	public Double subTotal() {
+	public Double getSubTotal() {
 		return quantity * price;
 	}
 }
