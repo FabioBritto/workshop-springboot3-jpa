@@ -84,6 +84,7 @@ public class TestConfig implements CommandLineRunner {
 		
 		User u1 = new User(null,"João Pé de Feijão", "joao@feijao","12312312","1234");
 		User u2 = new User(null,"Maria Mão de Latrina", "maria@latrina","3480234","123445");
+		User u3 = new User(null,"Samuel Oliveira de Souza", "samuel@freedom","11949206925","1234567");
 		
 		Order o1 = new Order(null, Instant.parse("2024-09-30T21:01:23Z"), OrderStatus.PAID, u1);
 		Order o2 = new Order(null, Instant.parse("2024-10-30T21:01:23Z"), OrderStatus.WAITING_PAYMENT, u2);
@@ -94,7 +95,7 @@ public class TestConfig implements CommandLineRunner {
 		 * Como a minha interface UserRepository extends JpaRepository, eu tenho, por meio dela,
 		 * acesso ao método "saveAll". Como parâmetro, eu crio uma lista que contém os dois objetos criados
 		 */
-		userRepository.saveAll(Arrays.asList(u1,u2));
+		userRepository.saveAll(Arrays.asList(u1,u2,u3));
 		orderRepository.saveAll(Arrays.asList(o1,o2,o3));
 		
 		OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
