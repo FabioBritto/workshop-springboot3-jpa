@@ -15,6 +15,8 @@ import com.educandoweb.course.repositories.UserRepository;
 import com.educandoweb.course.services.exceptions.DatabaseException;
 import com.educandoweb.course.services.exceptions.ResourceNotFoundException;
 
+import jakarta.persistence.EntityNotFoundException;
+
 /*
  * A anotação @Component, faz com que a minha classe seja REGISTRADA para que possa
  * haver a Dependency Injection
@@ -55,10 +57,13 @@ public class UserService {
 		 * O método getReferenceById() não chega no banco de dados. Ele só prepara o objeto monitorado
 		 * e depois eu faço alguma alteração no Banco de Dados
 		 */
-		
-		User entity = repository.getReferenceById(id);
-		updateData(entity, obj);
-		return repository.save(entity);
+		try {
+			User entity = repository.getReferenceById(id);
+			updateData(entity, obj);
+			return repository.save(entity);
+		} catch(EntityNotFoundException e) {
+			throw new ResourceNotFoundException(id);
+		}
 	}
 
 	private void updateData(User entity, User obj) {
