@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.educandoweb.course.entities.Order;
 import com.educandoweb.course.repositories.OrderRepository;
+import com.educandoweb.course.services.exceptions.ResourceNotFoundException;
 
 /*
  * A anotação @Component, faz com que a minha classe seja REGISTRADA para que possa
@@ -27,7 +28,7 @@ public class OrderService {
 	
 	public Order findById(Long id) {
 		Optional<Order> obj = repository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new ResourceNotFoundException(id));
 	}
 }
 
