@@ -14,6 +14,6 @@ Este projeto tem como objetivo a criação de um sistema básico de CRUD (Create
 Este projeto marca minha primeira experiência com a criação de um CRUD web com Java, e seu desenvolvimento contribuiu para meu aprendizado em Java web, Spring Boot e JPA/Hibernate.
 
 ### DIAGRAMA DE CLASSES
-![Diagrama de Classes - Domain Model](img/diagrama-classe.jpeg)
+![Diagrama de Classes - Domain Model](img/diagrama-classe.jpg)
 
 
