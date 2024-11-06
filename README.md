@@ -2,7 +2,7 @@
 
 ### Objetivos
 
-Este projeto tem como objetivo a criação de um sistema básico de CRUD (Create, Retrieve, Update, Delete) utilizando Java com Spring Boot, JPA e Hibernate. O projeto segue as boas práticas para uma aplicação Backend, incluindo:
+Este projeto tem como objetivo a criação de um sistema básico de CRUD (Create, Read, Update, Delete) utilizando Java com Spring Boot, JPA e Hibernate. O projeto segue as boas práticas para uma aplicação Backend, incluindo:
 
 - **Configuração inicial**: Criação de um projeto Java com Spring Boot para estruturar o Backend de um sistema web.
 - **Modelo de domínio**: Implementação de um modelo de domínio representando as entidades e relacionamentos do sistema.
