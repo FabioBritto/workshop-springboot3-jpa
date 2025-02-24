@@ -10,7 +10,7 @@ O desenvolvimento foi realizado com base nos ensinamentos do curso ministrado pe
 ## 🎯 Objetivos  
 ✔ **Configuração inicial:** Estruturação do projeto Java com Spring Boot.  
 ✔ **Domain Model:** Implementação de um modelo de domínio representando as entidades e seus relacionamentos.  
-✔ **Estrutura em camadas:** Separação das camadas de lógica em **Resource, Service e Repository**.  
+✔ **Estrutura em camadas:** Separação das camadas de lógica em **Resource(Controller), Service e Repository**.  
 ✔ **Banco de Dados:** Utilização do banco de dados **H2** para testes.  
 ✔ **CRUD Implementado:** Operações principais (**criação, consulta, atualização e exclusão**) para as entidades do sistema.  
 ✔ **Tratamento de Exceções:** Implementação de mecanismos para respostas adequadas aos usuários da API.  
