@@ -1,4 +1,4 @@
-# 📌 Nome do Projeto
+# 📌 API REST com Java
 
 ## Descrição  
 Este projeto tem como objetivo a criação de um sistema básico de CRUD (Create, Read, Update, Delete) utilizando **Java com Spring Boot, JPA e Hibernate**. A **API REST** permite a gestão de **usuários, pedidos, produtos e categorias**, seguindo princípios de **arquitetura RESTful**.  
