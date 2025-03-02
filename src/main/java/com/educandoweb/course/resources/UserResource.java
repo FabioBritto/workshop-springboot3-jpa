@@ -1,12 +1,10 @@
 package com.educandoweb.course.resources;
 
-import java.awt.PageAttributes.MediaType;
 import java.net.URI;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -74,9 +72,10 @@ public class UserResource {
 			@ApiResponse(responseCode = "400", description = "ID inválido"),
 			@ApiResponse(responseCode = "500", description = "Erro ao deletar Usuário")
 	})
-	@DeleteMapping(value = "/{id}")
-	public ResponseEntity<Void> delete(@PathVariable Long id){
-		service.delete(id);
+	//Preciso fazer alguma alteração pra diferenciar o método do outro put
+	@PutMapping(value = "/{id}/inactive")
+	public ResponseEntity<Void> deleteOrSetInactive(@PathVariable Long id){
+		service.updateOrDelete(id);
 		return ResponseEntity.noContent().build();
 	}
 	

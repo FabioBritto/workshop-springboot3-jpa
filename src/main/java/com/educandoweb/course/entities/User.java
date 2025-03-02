@@ -35,6 +35,7 @@ public class User implements Serializable {
 	private String email;
 	private String phone;
 	private String password;
+	private Boolean ativo;
 	
 	
 	//O JsonIgnore aqui não funciona. Só na classe ORDER
@@ -52,6 +53,7 @@ public class User implements Serializable {
 		this.email = email;
 		this.phone = phone;
 		this.password = password;
+		this.ativo = true;
 	}
 
 	public Long getId() {
@@ -92,6 +94,14 @@ public class User implements Serializable {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+	
+	public Boolean getAtivo() {
+		return ativo;
+	}
+	
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 	
 	@JsonIgnore
