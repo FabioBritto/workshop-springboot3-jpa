@@ -48,7 +48,8 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - **Spring Boot Starter Data JPA** - Abstração para manipulação de banco de dados utilizando **JPA/Hibernate**.  
 - **H2 Database** - Banco de dados em memória utilizado para testes e desenvolvimento.  
 - **Spring Boot Starter Test** - Ferramentas para criação de testes automatizados.  
-- **Maven** - Gerenciador de dependências e automação do build.  
+- **Maven** - Gerenciador de dependências e automação do build.
+- **Swagger** - Ferramenta de documentação, testes e visualização de **API's REST**.
 
 ---
 
@@ -76,11 +77,10 @@ Este projeto foi desenvolvido utilizando as seguintes tecnologias:
 - `GET /users/{id}` → Recupera um usuário a partir do ID  
 - `POST /users` → Insere um novo usuário (**conteúdo no corpo da requisição**)  
 - `PUT /users/{id}` → Atualiza um usuário a partir do ID  
-- `DELETE /users/{id}` → Deleta um usuário a partir do ID  
+- `PUT /users/{id}/inactive` → Se um usuário existir como referência em outra tabela, é alterado como inativo. Se não existir, é deletado a partir de seu ID.
 
 ---
 
 ## 📬 Contato  
 📧 **E-mail:** [fabio.tritono@gmail.com](mailto:fabio.tritono@gmail.com)  
 🐙 **LinkedIn:** [linkedin.com/in/fabio-britto-399223252](https://www.linkedin.com/in/fabio-britto-399223252/)  
->>>>>>> 79aa2c9deb009c9dfbe41fbd33c3d37279e19c3d
